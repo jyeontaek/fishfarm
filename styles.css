@@ -1,0 +1,68 @@
+.hud
+{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.4);
+	border: solid 2px white;	
+	color: white;
+}
+
+#scorebox
+{
+	margin-top: 20px;
+	margin-left: 10px;
+	height: 100px;
+	width: 160px;
+
+	padding-top: 15px;
+    padding-left: 15px;
+}
+
+#timebox
+{
+	margin-top: 20px;
+	margin-left: 950px;
+	padding: 5px;
+	width: 120px;
+}
+
+#menu
+{
+	margin-top: 150px;
+	margin-left: 350px;
+	height: 400px;
+	width: 400px;
+	display: none;
+}
+
+#infobox
+{
+	margin-top: 150px;
+	margin-left: 770px;
+	height: 220px;
+	width: 180px;
+	display: none;
+	padding: 10px;
+}
+
+#gameover
+{
+	margin-top: 150px;
+	margin-left: 375px;
+	height: 200px;
+	width: 300px;
+	padding: 20px;
+	text-align: center;
+	display: none;
+}
+
+button
+{
+	cursor: pointer;
+}
+
+.item
+{
+	cursor: pointer;
+}

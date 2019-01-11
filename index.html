@@ -1,0 +1,128 @@
+<!-- Graphics Example Code.  index.html - The web page document containing the canvas (drawing surface), that launches your javascript files. //-->
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"/> <link rel="icon" href="assets/fav.ico">
+<script> window.tiny_graphics = {};             // Store all our JavaScipt code inside of classes here.
+         window.classes = {}                    
+         </script>          
+                                      <!--  Javascript "include" files.  Any code in them gets executed as part of the page loading: //-->
+<script src="tiny-graphics.js" ></script>
+<script src= "dependencies.js" ></script>
+<script src=   "main-scene.js" ></script>
+
+<link href="styles.css" rel="stylesheet">
+
+<!--JQuery library-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Bootstrap core CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom styles/scripts -->
+<script src="fish.js" ></script>
+<script src="plants.js"></script>
+<script src="scene-graph.js"></script>
+<script src="shaders.js"></script>
+<script src="functions.js"></script>
+
+</head>
+<body style="background: DarkGray; padding: 10px;">       <!-- Begin typing your web page here. //-->
+
+                              <!-- The following code embeds a WebGL canvas panel widget with certain scenes and their controls. //-->
+<div id="main-canvas" class="canvas-widget"></div>
+<script> "use strict"     // ********************* THE ENTRY POINT OF YOUR WHOLE PROGRAM STARTS HERE ********************* 
+                                           // Use this code to embed a widget into any web page.  The widget inclues a 3D WebGL area
+                                           // (an HTML canvas) and various panels of controls.
+  const scenes = [ "Final_Project_Scene",    // First, list the names of scenes we will add to our canvas.  These will register 
+                   "Global_Info_Table"       ]; // themselves with this widget's Canvas_Manager so that their code can be called upon
+                                                // every time a draw / keyboard / mouse event happens on the web page.
+  new Canvas_Widget( "main-canvas", scenes );             // Use the Canvas_Widget class to display the WebGL demo.  Pass in
+                                                          // the name of the HTML element we are to replace with the widget.
+</script>
+                             <!-- The following code embeds a code navigator widget with links to classes. //-->
+<div id="main-code" class="code-widget"></div>
+<script> "use strict"
+  new Code_Widget( "main-code", "Final_Project_Scene" );
+</script>
+
+<div id="scorebox" class="hud">
+  <h6 id="money" style="margin-bottom: 5px;"></h6>
+  <h6 id="foodamt" style="margin-bottom: 5px;"></h6>
+</div>
+
+<div id="timebox" class="hud">
+  <h5 id="timerem"></h5>
+</div>
+
+<div id="menu" class="hud">
+  <div id="menu-contents" style="padding: 20px;">
+
+    <div id="header" style="text-align: center; margin: 0 auto; width: 350px; border-bottom: solid 2px white;">
+      <h5>Market</h5>
+    </div>
+
+    <div id="market-options" style="padding: 10px; padding-top: 15px;">
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-lg-5"><p class="item" id="food">Fish Food (5)</p></div>
+        <div class="col-lg-3"><p class="price">$0.50</p></div>
+        <div class="col-lg-4" style="text-align: right;"><button class="buy-btn" id="food">Buy</button></div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-lg-5"><p class="item" id="plant">Plant</p></div>
+        <div class="col-lg-3"><p class="price">$2.50</p></div>
+        <div class="col-lg-4" style="text-align: right;"><button class="buy-btn" id="plant">Buy</button></div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-lg-5"><p class="item" id="minnow">Minnow</p></div>
+        <div class="col-lg-3"><p class="price">$2.00</p></div>
+        <div class="col-lg-4" style="text-align: right;"><button class="buy-btn" id="minnow">Buy</button></div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-lg-5"><p class="item" id="tiger">Tigerfish</p></div>
+        <div class="col-lg-3"><p class="price">$5.00</p></div>
+        <div class="col-lg-4" style="text-align: right;"><button class="buy-btn" id="tiger">Buy</button></div>
+      </div>
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-lg-5"><p class="item" id="puffer">Pufferfish</p></div>
+        <div class="col-lg-3"><p class="price">$10.00</p></div>
+        <div class="col-lg-4" style="text-align: right;"><button class="buy-btn" id="puffer">Buy</button></div>
+      </div>
+
+    </div>
+
+    <div id="footer" style="text-align: center; margin: 0 auto; width: 350px;">
+      <p id="error-msg" style="display: none; color: red; margin-bottom: 5px;">Insufficient funds!</p>
+      <button id="exit-menu-btn">Exit</button>
+    </div>
+
+  </div>
+</div>
+
+<div id="infobox" class="hud">
+
+  <div style="text-align: center; color: white;">
+    <p style="padding-bottom: 5px; border-bottom: 2px solid white;">Info</p>
+    <p id="description" style="font-size: 14px;"></p>
+  </div>
+
+</div>
+
+<div id="gameover" class="hud">
+  <h4>Time's Up!</h4>
+  <h5 id="final-score">Score: </h5>
+  <br>
+  <button id="new-game">Play Again</button>
+</div>
+
+<audio id="dropSound" controls>
+  <source src="assets/drop2.mp3" type="audio/mp3">
+</audio>
+
+</body></html>
